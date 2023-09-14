@@ -41,12 +41,12 @@
         <div class="content">
             <img src="images\googlelogo.png">
             <br><br>
-            <form action="https://google.com/search">
+            <form action="https://www.google.com/search" method="GET" target="_blank">
                 <div class="search">
                     <img src="images/searchicon.svg" class="search-icon">
-                    <input type="text" class="s-input">
+                    <input type="text" class="s-input" >
                     <img src="images/voiceicon.png" class="vs-icon">
-                    <input type="submit" class="s-btn" value="Google Search">
+                    <input type="submit" class="s-btn" value="Google Search" onclick="googlesearch()">
                     <input type="submit" class="s-btn" value="I'm Feeling Lucky">
                 </div>
             </form>
@@ -70,5 +70,14 @@
             </footer>
         </div> 
     </div> 
+    <script>
+        function googlesearch() {
+            var query = document.querySelector('.s-input').value;
+            if (query.trim() !== "") {
+                var luckyUrl = 'https://www.google.com/search?q=' + encodeURIComponent(query) + '&btnI';
+                window.open(luckyUrl, '_blank');
+            }
+        }
+    </script>
 </body>
 </html>
